@@ -15,7 +15,6 @@ public:
 	ABasePawn();
 	virtual void Tick(float DeltaTime) override;
 protected:
-	virtual void BeginPlay() override;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess ="true"))
 	class UCapsuleComponent* CapsuleComp;
 private:

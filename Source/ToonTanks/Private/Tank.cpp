@@ -6,6 +6,7 @@
 #include "Camera/CameraComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Components/InputComponent.h"
+#include "Kismet/GameplayStatics.h"
 
 ATank::ATank()
 {
@@ -16,24 +17,36 @@ ATank::ATank()
 	Camera->SetupAttachment(SpringArm);
 }
 
+void ATank::BeginPlay()
+{
+	Super::BeginPlay();
+	PlayerControllerRef = Cast<APlayerController>(GetController());
+}
+
+
 void ATank::Move(float Value)
 {
-	FVector3d DeltaLocation(0.0f);
-	UWorld* World = GetWorld();
-	if (World)
-	{
-			float deltaTime =  World->GetDeltaSeconds();
-        	DeltaLocation.X = Value * deltaTime * speed;
-        	AddActorLocalOffset(DeltaLocation);
-	}
-
+	FVector DeltaLocation = FVector::ZeroVector;
+	const float deltaTime =  UGameplayStatics::GetWorldDeltaSeconds(this);
+	DeltaLocation.X = Value * deltaTime * speed;
+	AddActorLocalOffset(DeltaLocation, true);
 }
+
+void ATank::Turn(float Value)
+{
+	FRotator DeltaRotation = FRotator::ZeroRotator;
+	const float deltaTime = UGameplayStatics::GetWorldDeltaSeconds(this);
+	DeltaRotation.Yaw = Value * deltaTime * TurnRate;
+	AddActorLocalRotation(DeltaRotation, true);
+}
+
 
 void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
 	PlayerInputComponent->BindAxis(TEXT("MoveForward"), this, &ATank::Move);
+	PlayerInputComponent->BindAxis(TEXT("Turn"), this, &ATank::Turn);
 }
 
 
