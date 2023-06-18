@@ -19,9 +19,13 @@ private:
 	class USpringArmComponent* SpringArm;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess="true"))
 	class UCameraComponent* Camera;
+	UPROPERTY(VisibleAnywhere)
+	float speed = 500.0f;
+	void Move(float Value);
 
 protected:
 
 public:
 	ATank(); //constructor
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 };
