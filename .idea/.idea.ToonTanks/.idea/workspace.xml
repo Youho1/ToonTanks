@@ -10,11 +10,13 @@
     <list default="true" id="2361bdbd-834f-4f07-bb62-5c93364a87da" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ToonTanks/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ToonTanks/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_TowerTurret.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_TowerTurret.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/Main.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/Main.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/ToonTanks/Private/BasePawn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ToonTanks/Private/BasePawn.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/ToonTanks/Private/Tank.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ToonTanks/Private/Tank.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ToonTanks/Private/Tower.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ToonTanks/Private/Tower.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/ToonTanks/Public/BasePawn.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ToonTanks/Public/BasePawn.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ToonTanks/Public/Tank.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ToonTanks/Public/Tank.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ToonTanks/Public/Tower.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ToonTanks/Public/Tower.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,14 +35,14 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Source/ToonTanks/Private/BasePawn.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/ToonTanks/Public/BasePawn.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://D:/Unreal-Engine-Projects/ToonTanksProjectSetup_4.25/ToonTanksProjectSetup_4.25/ToonTanks/Source/ToonTanks/Public/Tank.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/ToonTanks/Public/Tank.h" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="Toolset" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2RKkRG8e8dSCrDpYAbdPguyLREn" />
   <component name="ProjectViewState">
@@ -139,7 +141,9 @@
       <workItem from="1687024187349" duration="126000" />
       <workItem from="1687024337753" duration="1291000" />
       <workItem from="1687091314769" duration="5346000" />
-      <workItem from="1687509061904" duration="6199000" />
+      <workItem from="1687509061904" duration="9094000" />
+      <workItem from="1687526548412" duration="321000" />
+      <workItem from="1687526889410" duration="2715000" />
     </task>
     <task id="LOCAL-00001" summary="BasePawnを作成">
       <created>1687013855734</created>

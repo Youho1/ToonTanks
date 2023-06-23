@@ -33,7 +33,7 @@ void ABasePawn::RotateTurret(const FVector LookAtTarget)
 			CurrentRotation,
 			LookAtRotation,
 			UGameplayStatics::GetWorldDeltaSeconds(this),
-			5.f),true);
+			InterpSpeed),true);
 }
 
 

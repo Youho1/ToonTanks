@@ -24,5 +24,5 @@ private:
 	UStaticMeshComponent* TurretMesh;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess ="true"))
 	USceneComponent* ProjectileSpawnPoint;
-
+	const float InterpSpeed = 8.0f;
 };
