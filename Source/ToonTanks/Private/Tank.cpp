@@ -3,6 +3,7 @@
 
 #include "Tank.h"
 
+#include "Algo/Rotate.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Components/InputComponent.h"
@@ -21,6 +22,16 @@ void ATank::BeginPlay()
 {
 	Super::BeginPlay();
 	PlayerControllerRef = Cast<APlayerController>(GetController());
+}
+
+void ATank::Tick(float DeltaTime)
+{
+	if (PlayerControllerRef)
+	{
+		FHitResult HitResult;
+		PlayerControllerRef->GetHitResultUnderCursor(ECC_Visibility, false, HitResult);
+		RotateTurret(HitResult.ImpactPoint);
+	}
 }
 
 

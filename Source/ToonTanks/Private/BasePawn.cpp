@@ -3,6 +3,7 @@
 
 #include "BasePawn.h"
 #include "Components/CapsuleComponent.h"
+#include "Kismet/GameplayStatics.h"
 // Sets default values
 ABasePawn::ABasePawn()
 {
@@ -12,18 +13,27 @@ ABasePawn::ABasePawn()
 	RootComponent = CapsuleComp;
 	BaseMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Base Mesh"));
 	BaseMesh->SetupAttachment(CapsuleComp);
-	TurrentMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Turrent Mesh"));
-	TurrentMesh->SetupAttachment(BaseMesh);
+	TurretMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Turrent Mesh"));
+	TurretMesh->SetupAttachment(BaseMesh);
 	ProjectileSpawnPoint = CreateDefaultSubobject<USceneComponent>(TEXT("Projectile Spawn Point"));
-	ProjectileSpawnPoint->SetupAttachment(TurrentMesh);
+	ProjectileSpawnPoint->SetupAttachment(TurretMesh);
 }
 
-
-// Called every frame
-void ABasePawn::Tick(float DeltaTime)
+void ABasePawn::RotateTurret(const FVector LookAtTarget)
 {
-	Super::Tick(DeltaTime);
+	const auto TurretLocation = TurretMesh->GetComponentLocation();
+	// ToTarget = ターゲットの座標　-　自分がいる座標
+	const auto ToTarget = LookAtTarget - TurretLocation;
+	// 地面と平行したいので、Yawだけを回転したい
+	const FRotator LookAtRotation = FRotator(0.f, ToTarget.Rotation().Yaw, 0.f);
 
+	const auto CurrentRotation = TurretMesh->GetComponentRotation();
+	TurretMesh->SetWorldRotation(
+		FMath::RInterpTo(
+			CurrentRotation,
+			LookAtRotation,
+			UGameplayStatics::GetWorldDeltaSeconds(this),
+			5.f),true);
 }
 
 

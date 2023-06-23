@@ -13,15 +13,15 @@ class TOONTANKS_API ABasePawn : public APawn
 
 public:
 	ABasePawn();
-	virtual void Tick(float DeltaTime) override;
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess ="true"))
 	class UCapsuleComponent* CapsuleComp;
+	void RotateTurret(const FVector LookAtTarget);
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess ="true"))
 	UStaticMeshComponent* BaseMesh;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess ="true"))
-	UStaticMeshComponent* TurrentMesh;
+	UStaticMeshComponent* TurretMesh;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess ="true"))
 	USceneComponent* ProjectileSpawnPoint;
 
