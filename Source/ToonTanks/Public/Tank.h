@@ -17,9 +17,9 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess="true"))
 	class UCameraComponent* Camera;
 	UPROPERTY(EditAnywhere)
-	float speed = 500.0f;
+	float speed = 600.0f;
 	UPROPERTY(EditAnywhere)
-	float TurnRate = 40.0f;
+	float TurnRate = 60.0f;
 	UPROPERTY()
 	APlayerController* PlayerControllerRef;
 	void Move(float Value);
