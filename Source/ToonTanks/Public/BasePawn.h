@@ -16,14 +16,22 @@ public:
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess ="true"))
 	class UCapsuleComponent* CapsuleComp;
-	void RotateTurret(const FVector LookAtTarget);
-	void Fire();
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess ="true"))
 	USceneComponent* ProjectileSpawnPoint;
+	
+	UPROPERTY(EditDefaultsOnly, Category="Combat")
+	TSubclassOf<class AProjectile> ProjectileClass;
+	
+	void RotateTurret(const FVector LookAtTarget);
+	void Fire();
+	bool CheckProjectilePointer() const;
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess ="true"))
 	UStaticMeshComponent* BaseMesh;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess ="true"))
 	UStaticMeshComponent* TurretMesh;
 	const float InterpSpeed = 8.0f;
+
+
 };
