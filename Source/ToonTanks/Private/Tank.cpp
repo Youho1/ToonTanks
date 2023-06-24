@@ -28,7 +28,6 @@ void ATank::Tick(float DeltaTime)
 		FHitResult HitResult;
 		PlayerControllerRef->GetHitResultUnderCursor(ECC_Visibility, false, HitResult);
 		RotateTurret(HitResult.ImpactPoint);
-
 	}
 }
 
@@ -36,7 +35,7 @@ void ATank::Tick(float DeltaTime)
 void ATank::Move(float Value)
 {
 	FVector DeltaLocation = FVector::ZeroVector;
-	const float deltaTime =  UGameplayStatics::GetWorldDeltaSeconds(this);
+	const float deltaTime = UGameplayStatics::GetWorldDeltaSeconds(this);
 	DeltaLocation.X = Value * deltaTime * speed;
 	AddActorLocalOffset(DeltaLocation, true);
 }
@@ -56,8 +55,5 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 	PlayerInputComponent->BindAxis(TEXT("MoveForward"), this, &ATank::Move);
 	PlayerInputComponent->BindAxis(TEXT("Turn"), this, &ATank::Turn);
-	PlayerInputComponent->BindAction(TEXT("Fire"),IE_Pressed, this, &ATank::Fire);
+	PlayerInputComponent->BindAction(TEXT("Fire"), IE_Pressed, this, &ATank::Fire);
 }
-
-
-

@@ -24,8 +24,10 @@ private:
 	APlayerController* PlayerControllerRef;
 	void Move(float Value);
 	void Turn(float Value);
+
 protected:
 	virtual void BeginPlay() override;
+
 public:
 	ATank(); //constructor
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;

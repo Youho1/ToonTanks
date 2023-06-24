@@ -8,9 +8,9 @@
 void ATower::BeginPlay()
 {
 	Super::BeginPlay();
-	Player = Cast<ATank>( UGameplayStatics::GetPlayerPawn(this, 0));
+	Player = Cast<ATank>(UGameplayStatics::GetPlayerPawn(this, 0));
 
-	GetWorldTimerManager().SetTimer(FireRateTimerHandle, this, &ATower::CheckFireCondition,  FireRate,true);
+	GetWorldTimerManager().SetTimer(FireRateTimerHandle, this, &ATower::CheckFireCondition, FireRate, true);
 }
 
 void ATower::Tick(float DeltaSeconds)
@@ -43,4 +43,3 @@ bool ATower::InFireRange() const
 	}
 	return false;
 }
-

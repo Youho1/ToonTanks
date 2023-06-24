@@ -8,7 +8,7 @@
 // Sets default values
 ABasePawn::ABasePawn()
 {
- 	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	CapsuleComp = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Capsule Collider"));
 	RootComponent = CapsuleComp;
@@ -34,30 +34,29 @@ void ABasePawn::RotateTurret(const FVector LookAtTarget)
 			CurrentRotation,
 			LookAtRotation,
 			UGameplayStatics::GetWorldDeltaSeconds(this),
-			InterpSpeed),true);
+			InterpSpeed), true);
 }
 
 void ABasePawn::Fire()
 {
-	if(CheckProjectilePointer())
+	if (CheckProjectilePointer())
 	{
-		GetWorld()->SpawnActor<AProjectile>(
+		auto Projectile = GetWorld()->SpawnActor<AProjectile>(
 			ProjectileClass,
 			ProjectileSpawnPoint->GetComponentLocation(),
 			ProjectileSpawnPoint->GetComponentRotation());
+		Projectile->SetOwner(this);
 	}
 }
 
 bool ABasePawn::CheckProjectilePointer() const
 {
-		if (ProjectileSpawnPoint)
-    	{
-    		if (ProjectileClass)
-    		{
-    			return true;
-    		}
-    	}
+	if (ProjectileSpawnPoint)
+	{
+		if (ProjectileClass)
+		{
+			return true;
+		}
+	}
 	return false;
 }
-
-
