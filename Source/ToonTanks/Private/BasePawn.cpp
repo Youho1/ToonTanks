@@ -60,3 +60,8 @@ bool ABasePawn::CheckProjectilePointer() const
 	}
 	return false;
 }
+
+void ABasePawn::HandleDestruction()
+{
+	// visual/sound effects 
+}

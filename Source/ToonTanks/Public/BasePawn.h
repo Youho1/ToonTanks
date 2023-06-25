@@ -13,6 +13,7 @@ class TOONTANKS_API ABasePawn : public APawn
 
 public:
 	ABasePawn();
+	virtual void HandleDestruction();
 
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess ="true"))

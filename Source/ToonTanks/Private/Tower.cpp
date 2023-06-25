@@ -43,3 +43,10 @@ bool ATower::InFireRange() const
 	}
 	return false;
 }
+
+void ATower::HandleDestruction()
+{
+	Super::HandleDestruction();
+	// 自分自身を削除
+	Destroy();
+}

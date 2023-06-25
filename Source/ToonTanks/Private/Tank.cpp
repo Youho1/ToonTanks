@@ -18,15 +18,15 @@ ATank::ATank()
 void ATank::BeginPlay()
 {
 	Super::BeginPlay();
-	PlayerControllerRef = Cast<APlayerController>(GetController());
+	TankPlayerController = Cast<APlayerController>(GetController());
 }
 
 void ATank::Tick(float DeltaTime)
 {
-	if (PlayerControllerRef)
+	if (TankPlayerController)
 	{
 		FHitResult HitResult;
-		PlayerControllerRef->GetHitResultUnderCursor(ECC_Visibility, false, HitResult);
+		TankPlayerController->GetHitResultUnderCursor(ECC_Visibility, false, HitResult);
 		RotateTurret(HitResult.ImpactPoint);
 	}
 }
@@ -56,4 +56,13 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	PlayerInputComponent->BindAxis(TEXT("MoveForward"), this, &ATank::Move);
 	PlayerInputComponent->BindAxis(TEXT("Turn"), this, &ATank::Turn);
 	PlayerInputComponent->BindAction(TEXT("Fire"), IE_Pressed, this, &ATank::Fire);
+}
+
+void ATank::HandleDestruction()
+{
+	Super::HandleDestruction();
+	// タンクの可視性を不可視にする
+	SetActorHiddenInGame(true);
+	// タンクのTick関数を停止
+	SetActorTickEnabled(false);
 }

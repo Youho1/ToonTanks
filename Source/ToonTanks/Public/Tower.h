@@ -33,4 +33,5 @@ private:
 
 public:
 	virtual void BeginPlay() override;
+	virtual void HandleDestruction() override;
 };
