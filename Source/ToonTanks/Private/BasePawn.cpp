@@ -5,6 +5,7 @@
 #include "Components/CapsuleComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Projectile.h"
+
 // Sets default values
 ABasePawn::ABasePawn()
 {
@@ -41,7 +42,7 @@ void ABasePawn::Fire()
 {
 	if (CheckProjectilePointer())
 	{
-		auto Projectile = GetWorld()->SpawnActor<AProjectile>(
+		AProjectile* Projectile = GetWorld()->SpawnActor<AProjectile>(
 			ProjectileClass,
 			ProjectileSpawnPoint->GetComponentLocation(),
 			ProjectileSpawnPoint->GetComponentRotation());
@@ -63,5 +64,24 @@ bool ABasePawn::CheckProjectilePointer() const
 
 void ABasePawn::HandleDestruction()
 {
-	// visual/sound effects 
+	// visual/sound effects
+	if (DeathParticles)
+	{
+		UGameplayStatics::SpawnEmitterAtLocation(
+			this,
+			DeathParticles,
+			this->GetActorLocation(),
+			this->GetActorRotation());
+	}
+	if (DeathSound)
+	{
+		UGameplayStatics::PlaySoundAtLocation(
+			this,
+			DeathSound,
+			this->GetActorLocation());
+	}
+	if (DeathCameraShakeClass)
+	{
+		GetWorld()->GetFirstPlayerController()->ClientStartCameraShake(DeathCameraShakeClass);
+	}
 }

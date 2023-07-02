@@ -35,4 +35,13 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess ="true"))
 	UStaticMeshComponent* TurretMesh;
 	const float InterpSpeed = 8.0f;
+
+	UPROPERTY(EditAnywhere, Category="Combat")
+	UParticleSystem* DeathParticles;
+
+	UPROPERTY(EditAnywhere, Category="Combat")
+	USoundBase* DeathSound;
+
+	UPROPERTY(EditAnywhere, Category="Combat")
+	TSubclassOf<UCameraShakeBase> DeathCameraShakeClass;
 };

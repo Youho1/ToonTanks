@@ -19,7 +19,7 @@ private:
 	UPROPERTY(EditAnywhere)
 	float speed = 600.0f;
 	UPROPERTY(EditAnywhere)
-	float TurnRate = 60.0f;
+	float TurnRate = 90.0f;
 	UPROPERTY()
 	APlayerController* TankPlayerController;
 	void Move(float Value);
@@ -34,4 +34,6 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	APlayerController* GetTankPlayerController() const { return TankPlayerController; }
 	virtual void HandleDestruction() override;
+
+	bool bAlive = true;
 };

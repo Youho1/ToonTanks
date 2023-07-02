@@ -5,6 +5,7 @@
 
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "Particles/ParticleSystemComponent.h"
 
 // Sets default values
 AProjectile::AProjectile()
@@ -17,14 +18,17 @@ AProjectile::AProjectile()
 		UProjectileMovementComponent>(TEXT("Projectile Movement Component"));
 	ProjectileMovementComp->InitialSpeed = 1300.f;
 	ProjectileMovementComp->MaxSpeed = 1300.f;
+
+	TrailParticles = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("Smoke Trail"));
+	TrailParticles->SetupAttachment(RootComponent);
 }
 
 // Called when the game starts or when spawned
 void AProjectile::BeginPlay()
 {
 	Super::BeginPlay();
-
 	ProjectileMesh->OnComponentHit.AddDynamic(this, &AProjectile::OnHit);
+	PlayLaunchSound();
 }
 
 // Called every frame
@@ -36,15 +40,42 @@ void AProjectile::Tick(float DeltaTime)
 void AProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* BeingHitActor, UPrimitiveComponent* BeingHitComp,
                         FVector NormalImpulse, const FHitResult& Hit)
 {
-	auto MyOwner = GetOwner();
-	if (MyOwner == nullptr) return;
+	const AActor* MyOwner = GetOwner();
+	if (MyOwner == nullptr)
+	{
+		Destroy();
+	};
 
-	auto MyOwnerInstigator = MyOwner->GetInstigatorController();
-	auto DamageTypeClass = UDamageType::StaticClass();
+	AController* MyOwnerInstigator = MyOwner->GetInstigatorController();
+	UClass* DamageTypeClass = UDamageType::StaticClass();
 
 	if (BeingHitActor && BeingHitActor != this && BeingHitActor != MyOwner)
 	{
 		UGameplayStatics::ApplyDamage(BeingHitActor, Damage, MyOwnerInstigator, this, DamageTypeClass);
-		Destroy();
+		if (HitParticles)
+		{
+			UGameplayStatics::SpawnEmitterAtLocation(
+				this,
+				HitParticles,
+				this->GetActorLocation(),
+				this->GetActorRotation());
+		}
+		if (HitSound)
+		{
+			UGameplayStatics::PlaySoundAtLocation(this, HitSound, this->GetActorLocation());
+		}
+		if (HitCameraShake)
+		{
+			GetWorld()->GetFirstPlayerController()->ClientStartCameraShake(HitCameraShake);
+		}
+	}
+	Destroy();
+}
+
+void AProjectile::PlayLaunchSound()
+{
+	if (LaunchSound)
+	{
+		UGameplayStatics::PlaySoundAtLocation(this, LaunchSound, this->GetActorLocation());
 	}
 }

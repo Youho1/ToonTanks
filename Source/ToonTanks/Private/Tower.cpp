@@ -24,7 +24,11 @@ void ATower::Tick(float DeltaSeconds)
 
 void ATower::CheckFireCondition()
 {
-	if (InFireRange())
+	if (Player == nullptr)
+	{
+		return;
+	}
+	if (InFireRange() && Player->bAlive)
 	{
 		Fire();
 	}

@@ -65,4 +65,6 @@ void ATank::HandleDestruction()
 	SetActorHiddenInGame(true);
 	// タンクのTick関数を停止
 	SetActorTickEnabled(false);
+	// 死亡したフラグを立つ　-> 他のオブジェクトに教える
+	bAlive = false;
 }
