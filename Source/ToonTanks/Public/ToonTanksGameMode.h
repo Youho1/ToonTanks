@@ -7,7 +7,7 @@
 #include "ToonTanksGameMode.generated.h"
 
 /**
- * 
+ *
  */
 UCLASS()
 class TOONTANKS_API AToonTanksGameMode : public AGameModeBase
@@ -21,10 +21,11 @@ protected:
 	virtual void BeginPlay() override;
 
 	UFUNCTION(BlueprintImplementableEvent)
-	void StartGame();
+		void StartGame();
 
 	UFUNCTION(BlueprintImplementableEvent)
-	void GameOver(bool bWonGame);
+		void GameOver(bool bWonGame);
+
 
 private:
 	class ATank* Player;
@@ -35,4 +36,7 @@ private:
 
 	int32 TargetTowers = 0;
 	int32 GetTargetTowerCound();
+
+	FName CurrentLevel;
+
 };

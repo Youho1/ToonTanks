@@ -24,6 +24,7 @@ void AToonTanksGameMode::ActorDied(AActor* DeadActor)
 		{
 			ToonTanksPlayerController->SetPlayerEnabledState(false);
 		}
+
 		GameOver(false);
 	}
 	else if (const auto DestroyedTower = Cast<ATower>(DeadActor))
@@ -53,9 +54,9 @@ void AToonTanksGameMode::HandleGameStart()
 			&AToonTanksPlayerController::SetPlayerEnabledState,
 			true);
 		GetWorldTimerManager().SetTimer(PlayerEnableTimerHandle,
-		                                PlayerEnableTimerDelegate,
-		                                StartDelay,
-		                                false);
+			PlayerEnableTimerDelegate,
+			StartDelay,
+			false);
 	}
 }
 

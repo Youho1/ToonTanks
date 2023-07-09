@@ -10,21 +10,9 @@
     <list default="true" id="2361bdbd-834f-4f07-bb62-5c93364a87da" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ToonTanks/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ToonTanks/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Actors/BP_Projectile.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Actors/BP_Projectile.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/GameMode/BP_ToonTanksGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/GameMode/BP_ToonTanksGameMode.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_Tank.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_Tank.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_TowerTurret.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Pawns/BP_TowerTurret.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultGame.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultGame.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/Main.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/Main.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ToonTanks/Private/BasePawn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ToonTanks/Private/BasePawn.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ToonTanks/Private/Projectile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ToonTanks/Private/Projectile.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ToonTanks/Private/Tank.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ToonTanks/Private/Tank.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ToonTanks/Private/ToonTanksGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ToonTanks/Private/ToonTanksGameMode.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ToonTanks/Private/Tower.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ToonTanks/Private/Tower.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ToonTanks/Public/BasePawn.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ToonTanks/Public/BasePawn.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ToonTanks/Public/Projectile.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ToonTanks/Public/Projectile.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ToonTanks/Public/Tank.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ToonTanks/Public/Tank.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ToonTanks/Public/ToonTanksGameMode.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ToonTanks/Public/ToonTanksGameMode.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/Main_BuiltData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/Main_BuiltData.uasset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +151,7 @@
       <workItem from="1687536280634" duration="14432000" />
       <workItem from="1687590595539" duration="1540000" />
       <workItem from="1687607823331" duration="43000" />
-      <workItem from="1687607885057" duration="28384000" />
+      <workItem from="1687607885057" duration="28385000" />
     </task>
     <task id="LOCAL-00001" summary="BasePawnを作成">
       <created>1687013855734</created>
