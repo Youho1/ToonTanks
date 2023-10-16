@@ -24,7 +24,7 @@ void AToonTanksGameMode::ActorDied(AActor* DeadActor)
 		{
 			ToonTanksPlayerController->SetPlayerEnabledState(false);
 		}
-
+		// bWongame = false プレイヤーが勝っていない
 		GameOver(false);
 	}
 	else if (const auto DestroyedTower = Cast<ATower>(DeadActor))
@@ -33,6 +33,7 @@ void AToonTanksGameMode::ActorDied(AActor* DeadActor)
 		--TargetTowers;
 		if (TargetTowers == 0)
 		{
+			// プレイヤーが勝った
 			GameOver(true);
 		}
 	}
