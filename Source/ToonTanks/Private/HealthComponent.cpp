@@ -33,7 +33,7 @@ void UHealthComponent::TickComponent(float DeltaTime, ELevelTick TickType,
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 }
-
+// ダメージを計算
 void UHealthComponent::DamageTaken(AActor* DamagedActor, float Damage, const UDamageType* DamageType,
                                    AController* Instigator, AActor* DamageCauser)
 {
