@@ -41,14 +41,15 @@ void AProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* BeingHitActor, UPr
                         FVector NormalImpulse, const FHitResult& Hit)
 {
 	const AActor* MyOwner = GetOwner();
+	// 発射物の親が存在するか
 	if (MyOwner == nullptr)
 	{
 		Destroy();
 	};
-
+	// この発射物を発射した親のコントローラーを取得
 	AController* MyOwnerInstigator = MyOwner->GetInstigatorController();
 	UClass* DamageTypeClass = UDamageType::StaticClass();
-
+	// ダメージを適用する時
 	if (BeingHitActor && BeingHitActor != this && BeingHitActor != MyOwner)
 	{
 		UGameplayStatics::ApplyDamage(BeingHitActor, Damage, MyOwnerInstigator, this, DamageTypeClass);
@@ -71,7 +72,7 @@ void AProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* BeingHitActor, UPr
 	}
 	Destroy();
 }
-
+// サウンドを再生
 void AProjectile::PlayLaunchSound()
 {
 	if (LaunchSound)
