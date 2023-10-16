@@ -49,7 +49,7 @@ void ABasePawn::Fire()
 		Projectile->SetOwner(this);
 	}
 }
-
+// 発射物の生成位置と発射物が存在するかをチェック
 bool ABasePawn::CheckProjectilePointer() const
 {
 	if (ProjectileSpawnPoint)
